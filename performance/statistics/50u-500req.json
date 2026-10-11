@@ -1,0 +1,34 @@
+{
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 500,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 8.779999999999994,
+    "medianResTime" : 7.0,
+    "minResTime" : 6.0,
+    "maxResTime" : 61.0,
+    "pct1ResTime" : 12.0,
+    "pct2ResTime" : 17.0,
+    "pct3ResTime" : 34.960000000000036,
+    "throughput" : 25.482900973446817,
+    "receivedKBytesPerSec" : 1213.150331596249,
+    "sentKBytesPerSec" : 4.6536157051118705
+  },
+  "GET Hospitals In Range" : {
+    "transaction" : "GET Hospitals In Range",
+    "sampleCount" : 500,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 8.779999999999994,
+    "medianResTime" : 7.0,
+    "minResTime" : 6.0,
+    "maxResTime" : 61.0,
+    "pct1ResTime" : 12.0,
+    "pct2ResTime" : 17.0,
+    "pct3ResTime" : 34.960000000000036,
+    "throughput" : 25.482900973446817,
+    "receivedKBytesPerSec" : 1213.150331596249,
+    "sentKBytesPerSec" : 4.6536157051118705
+  }
+}

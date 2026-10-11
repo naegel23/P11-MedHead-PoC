@@ -1,0 +1,34 @@
+{
+  "GET Nearest Hospital" : {
+    "transaction" : "GET Nearest Hospital",
+    "sampleCount" : 100,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 13.260000000000003,
+    "medianResTime" : 9.0,
+    "minResTime" : 7.0,
+    "maxResTime" : 157.0,
+    "pct1ResTime" : 20.900000000000006,
+    "pct2ResTime" : 22.0,
+    "pct3ResTime" : 155.77999999999938,
+    "throughput" : 10.524100189433803,
+    "receivedKBytesPerSec" : 501.01500013155123,
+    "sentKBytesPerSec" : 1.9218815775626183
+  },
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 100,
+    "errorCount" : 0,
+    "errorPct" : 0.0,
+    "meanResTime" : 13.260000000000003,
+    "medianResTime" : 9.0,
+    "minResTime" : 7.0,
+    "maxResTime" : 157.0,
+    "pct1ResTime" : 20.900000000000006,
+    "pct2ResTime" : 22.0,
+    "pct3ResTime" : 155.77999999999938,
+    "throughput" : 10.524100189433803,
+    "receivedKBytesPerSec" : 501.01500013155123,
+    "sentKBytesPerSec" : 1.9218815775626183
+  }
+}
