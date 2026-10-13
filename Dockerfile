@@ -1,4 +1,9 @@
- FROM tomcat
- USER root
- COPY pocApiMedHead-0.0.1-SNAPSHOT.jar /usr/local/tomcat/webapps/
- CMD java -jar /usr/local/tomcat/webapps/pocApiMedHead-0.0.1-SNAPSHOT.jar
+FROM eclipse-temurin:11-jre
+
+WORKDIR /app
+
+COPY target/pocApiMedHead-0.0.1-SNAPSHOT.jar app.jar
+
+EXPOSE 9000
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
