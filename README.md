@@ -46,6 +46,16 @@ http://localhost:9000
 
 La base H2 est utilisée en mémoire pour le PoC.
 
+## Lancer le backend avec Docker
+
+```bash
+mvn clean package
+docker build -t medhead-poc:local .
+docker run --rm -p 9000:9000 medhead-poc:local
+```
+
+Le conteneur utilise Java 11 et expose l'API Spring Boot sur le port `9000`.
+
 ## Lancer le frontend
 
 Dans un second terminal :
@@ -125,6 +135,8 @@ Trois campagnes de charge ont été exécutées sur le backend :
 | 20 | 100 | 0 % | 13.26 ms | 22 ms | 10.52 req/s |
 | 50 | 500 | 0 % | 8.78 ms | 17 ms | 25.48 req/s |
 | 100 | 1000 | 0 % | 7.90 ms | 15 ms | 33.65 req/s |
+
+Un test de référence complémentaire a été exécuté sur l'endpoint `/hospital/free/speciality/.../range/...` avec **100 000 requêtes** et 100 utilisateurs virtuels. Il a atteint **829.34 req/s**, avec **0 % d'erreur**, un temps de réponse moyen de **98.17 ms**, une médiane de **37 ms** et un **P90 de 199 ms**. Les P95 et P99 atteignent respectivement **254.95 ms** et **362 ms**, ce qui constitue un point de vigilance avant une mise en production.
 
 Le détail des scénarios, des métriques et des limites observées est documenté dans [`performance/README.md`](performance/README.md).
 
