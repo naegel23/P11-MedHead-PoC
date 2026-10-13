@@ -4,10 +4,11 @@
 
 Ces tests JMeter évaluent le comportement du backend MedHead sous charge et permettent d'identifier les éventuels points de saturation du PoC.
 
-Deux scénarios sont disponibles :
+Trois scénarios sont disponibles :
 
 - `medhead-load-test.jmx` : test de charge du backend sur l'endpoint `/hospital/range/...`, sans dépendance au service de routage externe.
 - `medhead-e2e-test.jmx` : scénario de bout en bout sur `/nearest/...`, incluant la recherche d'hôpitaux et l'appel au service de calcul d'itinéraire externe.
+- `medhead-throughput-test.jmx` : test de débit contrôlé sur `/hospital/free/speciality/.../range/...`, destiné à valider le critère architectural de 800 requêtes par seconde.
 
 ## Résultats des tests de charge
 
@@ -23,6 +24,22 @@ La diminution du temps moyen observée sur les campagnes les plus importantes pe
 
 Dans l'environnement local utilisé pour le PoC, le backend est resté stable jusqu'à 100 utilisateurs virtuels et 1000 requêtes sur le scénario testé.
 
+## Validation du critère 800 req/s
+
+Le scénario `medhead-throughput-test.jmx` teste la recherche des hôpitaux disponibles correspondant à une spécialité dans un rayon donné, sans inclure la dépendance de routage externe.
+
+Le test de référence a exécuté **100 000 requêtes** avec 100 utilisateurs virtuels et a obtenu les résultats suivants :
+
+| Requêtes | Erreurs | Temps moyen | Médiane | P90 | P95 | P99 | Maximum | Débit |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 100 000 | 0 % | 98.17 ms | 37 ms | 199 ms | 254.95 ms | 362 ms | 1190 ms | 829.34 req/s |
+
+Le débit cible de **800 requêtes par seconde** est donc dépassé sans erreur, avec un temps de réponse moyen inférieur à **200 ms** et un P90 de **199 ms**.
+
+Les percentiles P95 et P99 dépassent toutefois 200 ms. Le PoC valide donc le critère en débit et en latence moyenne, mais ne démontre pas que 100 % des requêtes restent sous le seuil de 200 ms. Ces pics de latence constituent un point d'optimisation et de surveillance avant une mise en production.
+
+Les statistiques synthétiques de cette campagne sont conservées dans `statistics/800rps-100000req.json`.
+
 ## Dépendance externe
 
 Le scénario de bout en bout `/nearest/...` dépend du service de routage OpenRouteService.
@@ -35,6 +52,8 @@ Ce comportement met en évidence un point d'attention architectural pour une mis
 
 - `medhead-load-test.jmx` : scénario de charge interne
 - `medhead-e2e-test.jmx` : scénario fonctionnel de bout en bout
+- `medhead-throughput-test.jmx` : scénario de validation du débit cible de 800 req/s
+- `statistics/800rps-100000req.json` : statistiques du test de référence de 100 000 requêtes
 - `results-20u-100req.jtl` : résultats bruts 20 utilisateurs
 - `results-50u-500req.jtl` : résultats bruts 50 utilisateurs
 - `results-100u-1000req.jtl` : résultats bruts 100 utilisateurs
