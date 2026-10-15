@@ -159,23 +159,6 @@
 
 	<profiles>
 		<profile>
-			<id>github</id>
-			<activation>
-				<property>
-					<name>useGitHubPackages</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<distributionManagement>
-				<repository>
-					<id>github</id>
-					<name>GitHub Packages</name>
-					<url>https://maven.pkg.github.com/etcomment/ms1/</url>
-					<uniqueVersion>true</uniqueVersion>
-				</repository>
-			</distributionManagement>
-		</profile>
-		<profile>
 			<id>failsafe</id>
 			<build>
 				<plugins>
