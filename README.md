@@ -8,7 +8,7 @@ L'objectif est de démontrer qu'il est possible de recommander rapidement un hô
 
 Le projet est composé de deux parties :
 
-- **Backend** : Java 11, Spring Boot 2.7, Maven, Spring Data JPA et H2.
+- **Backend** : Java 17, Spring Boot 3.5.16, Maven, Spring Data JPA et H2.
 - **Frontend** : Vue.js avec Vite.
 - **Routage externe** : OpenRouteService pour calculer les distances et durées routières.
 - **Tests de performance** : Apache JMeter.
@@ -24,7 +24,7 @@ Flux principal :
 
 ## Prérequis
 
-- Java 11
+- Java 17
 - Maven
 - Node.js 22 recommandé
 - npm
@@ -46,6 +46,14 @@ http://localhost:9000
 
 La base H2 est utilisée en mémoire pour le PoC.
 
+## Documentation API
+
+La documentation de l'API est générée avec **OpenAPI 3** via springdoc.
+
+- Spécification OpenAPI : `http://localhost:9000/v3/api-docs`
+- Swagger UI : `http://localhost:9000/swagger-ui/index.html`
+
+
 ## Lancer le backend avec Docker
 
 ```bash
@@ -54,7 +62,7 @@ docker build -t medhead-poc:local .
 docker run --rm -p 9000:9000 medhead-poc:local
 ```
 
-Le conteneur utilise Java 11 et expose l'API Spring Boot sur le port `9000`.
+Le conteneur utilise Java 17 et expose l'API Spring Boot sur le port `9000`.
 
 ## Lancer le frontend
 
@@ -136,7 +144,7 @@ Trois campagnes de charge ont été exécutées sur le backend :
 | 50 | 500 | 0 % | 8.78 ms | 17 ms | 25.48 req/s |
 | 100 | 1000 | 0 % | 7.90 ms | 15 ms | 33.65 req/s |
 
-Un test de référence complémentaire a été exécuté sur l'endpoint `/hospital/free/speciality/.../range/...` avec **100 000 requêtes** et 100 utilisateurs virtuels. Il a atteint **829.34 req/s**, avec **0 % d'erreur**, un temps de réponse moyen de **98.17 ms**, une médiane de **37 ms** et un **P90 de 199 ms**. Les P95 et P99 atteignent respectivement **254.95 ms** et **362 ms**, ce qui constitue un point de vigilance avant une mise en production.
+Un test de référence complémentaire a été exécuté sur l’endpoint `/hospital/free/speciality/.../range/...` avec **100 000 requêtes** et 100 utilisateurs virtuels. Le scénario est configuré pour viser **800 req/s** ; le débit effectivement mesuré lors de ce run a été de **998.93 req/s**, avec **0 % d’erreur**, un temps de réponse moyen de **3.98 ms**, une médiane de **2 ms**, un **P90 de 5 ms**, un **P95 de 15.95 ms** et un **P99 de 50 ms**. Le temps de réponse maximal observé est de **137 ms**.
 
 Le détail des scénarios, des métriques et des limites observées est documenté dans [`performance/README.md`](performance/README.md).
 

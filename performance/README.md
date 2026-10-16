@@ -32,11 +32,11 @@ Le test de référence a exécuté **100 000 requêtes** avec 100 utilisateurs v
 
 | Requêtes | Erreurs | Temps moyen | Médiane | P90 | P95 | P99 | Maximum | Débit |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| 100 000 | 0 % | 98.17 ms | 37 ms | 199 ms | 254.95 ms | 362 ms | 1190 ms | 829.34 req/s |
+| 100 000 | 0 % | 3.98 ms | 2 ms | 5 ms | 15.95 ms | 50 ms | 137 ms | 998.93 req/s |
 
-Le débit cible de **800 requêtes par seconde** est donc dépassé sans erreur, avec un temps de réponse moyen inférieur à **200 ms** et un P90 de **199 ms**.
+Le scénario est configuré pour viser **800 requêtes par seconde**. Lors de cette campagne, le débit effectivement mesuré a atteint **998.93 req/s**, sans aucune erreur.
 
-Les percentiles P95 et P99 dépassent toutefois 200 ms. Le PoC valide donc le critère en débit et en latence moyenne, mais ne démontre pas que 100 % des requêtes restent sous le seuil de 200 ms. Ces pics de latence constituent un point d'optimisation et de surveillance avant une mise en production.
+Sur ce run, les temps de réponse restent largement sous le seuil de **200 ms** : moyenne de **3.98 ms**, P90 de **5 ms**, P95 de **15.95 ms**, P99 de **50 ms** et maximum observé de **137 ms**. Le critère de performance du PoC est donc satisfait sur cet endpoint dans les conditions de ce test.
 
 Les statistiques synthétiques de cette campagne sont conservées dans `statistics/800rps-100000req.json`.
 

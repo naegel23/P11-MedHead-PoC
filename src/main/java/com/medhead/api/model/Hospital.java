@@ -1,7 +1,7 @@
 package com.medhead.api.model;
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 /**
  *
  * @author stiven
