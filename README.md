@@ -144,7 +144,7 @@ Trois campagnes de charge ont été exécutées sur le backend :
 | 50 | 500 | 0 % | 8.78 ms | 17 ms | 25.48 req/s |
 | 100 | 1000 | 0 % | 7.90 ms | 15 ms | 33.65 req/s |
 
-Un test de référence complémentaire a été exécuté sur l'endpoint `/hospital/free/speciality/.../range/...` avec **100 000 requêtes** et 100 utilisateurs virtuels. Il a atteint **829.34 req/s**, avec **0 % d'erreur**, un temps de réponse moyen de **98.17 ms**, une médiane de **37 ms** et un **P90 de 199 ms**. Les P95 et P99 atteignent respectivement **254.95 ms** et **362 ms**, ce qui constitue un point de vigilance avant une mise en production.
+Un test de référence complémentaire a été exécuté sur l’endpoint `/hospital/free/speciality/.../range/...` avec **100 000 requêtes** et 100 utilisateurs virtuels. Le scénario est configuré pour viser **800 req/s** ; le débit effectivement mesuré lors de ce run a été de **998.93 req/s**, avec **0 % d’erreur**, un temps de réponse moyen de **3.98 ms**, une médiane de **2 ms**, un **P90 de 5 ms**, un **P95 de 15.95 ms** et un **P99 de 50 ms**. Le temps de réponse maximal observé est de **137 ms**.
 
 Le détail des scénarios, des métriques et des limites observées est documenté dans [`performance/README.md`](performance/README.md).
 
