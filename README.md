@@ -8,7 +8,7 @@ L'objectif est de démontrer qu'il est possible de recommander rapidement un hô
 
 Le projet est composé de deux parties :
 
-- **Backend** : Java 11, Spring Boot 2.7, Maven, Spring Data JPA et H2.
+- **Backend** : Java 17, Spring Boot 3.5.16, Maven, Spring Data JPA et H2.
 - **Frontend** : Vue.js avec Vite.
 - **Routage externe** : OpenRouteService pour calculer les distances et durées routières.
 - **Tests de performance** : Apache JMeter.
@@ -24,7 +24,7 @@ Flux principal :
 
 ## Prérequis
 
-- Java 11
+- Java 17
 - Maven
 - Node.js 22 recommandé
 - npm
@@ -46,6 +46,14 @@ http://localhost:9000
 
 La base H2 est utilisée en mémoire pour le PoC.
 
+## Documentation API
+
+La documentation de l'API est générée avec **OpenAPI 3** via springdoc.
+
+- Spécification OpenAPI : `http://localhost:9000/v3/api-docs`
+- Swagger UI : `http://localhost:9000/swagger-ui/index.html`
+
+
 ## Lancer le backend avec Docker
 
 ```bash
@@ -54,7 +62,7 @@ docker build -t medhead-poc:local .
 docker run --rm -p 9000:9000 medhead-poc:local
 ```
 
-Le conteneur utilise Java 11 et expose l'API Spring Boot sur le port `9000`.
+Le conteneur utilise Java 17 et expose l'API Spring Boot sur le port `9000`.
 
 ## Lancer le frontend
 
