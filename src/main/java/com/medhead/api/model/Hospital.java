@@ -4,7 +4,7 @@ import lombok.Data;
 import jakarta.persistence.*;
 /**
  *
- * @author stiven
+ * @author Najim El Cabiri
  */
 @Data
 @Entity

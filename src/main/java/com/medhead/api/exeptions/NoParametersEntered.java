@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  *
- * @author stiven
+ * @author Najim El Cabiri
  */
 @ResponseStatus(HttpStatus.NO_CONTENT)
 public class NoParametersEntered extends Exception {

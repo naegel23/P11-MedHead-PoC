@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  *
- * @author stiven
+ * @author Najim El Cabiri
  */
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
 public class NoHospitalFound extends RuntimeException{

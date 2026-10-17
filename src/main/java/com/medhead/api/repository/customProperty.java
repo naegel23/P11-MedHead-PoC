@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  *
- * @author stiven
+ * @author Najim El Cabiri
  */
 @Configuration
 public class customProperty {

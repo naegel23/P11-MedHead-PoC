@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  *
- * @author stiven
+ * @author Najim El Cabiri
  */
 @ResponseStatus(HttpStatus.NOT_IMPLEMENTED)
 public class NotYetImplemented extends Exception {

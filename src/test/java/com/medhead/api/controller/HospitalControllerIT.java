@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.hasSize;
 
 /**
  *
- * @author stiven
+ * @author Najim El Cabiri
  */
 @SpringBootTest
 @AutoConfigureMockMvc

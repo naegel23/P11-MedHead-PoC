@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author stiven
+ * @author Najim El Cabiri
  */
 @RestController
 public class HospitalController {

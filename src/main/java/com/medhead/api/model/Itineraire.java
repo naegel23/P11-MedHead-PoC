@@ -10,7 +10,7 @@ import java.util.Comparator;
 
 /**
  *
- * @author stiven
+ * @author Najim El Cabiri
  */
 @JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class Itineraire {

@@ -22,7 +22,7 @@ import java.util.stream.StreamSupport;
 
 /**
  *
- * @author stiven
+ * @author Najim El Cabiri
  */
 @Service
 public class GisOperations {

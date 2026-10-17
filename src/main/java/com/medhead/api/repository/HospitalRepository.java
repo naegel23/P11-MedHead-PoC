@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.medhead.api.model.Hospital;
 /**
  *
- * @author stiven
+ * @author Najim El Cabiri
  */
 @Repository
 public interface HospitalRepository extends CrudRepository<Hospital, Integer>, HospitalRepositoryCustom{
